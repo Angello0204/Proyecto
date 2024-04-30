@@ -7,7 +7,7 @@ def saludo(request):
 
 
 def probando_template(request):
-    mi_html = open("./templates/template1.html")
+    mi_html = open("./templates/template1.html") 
     mi_template = Template(mi_html.read()) 
     mi_html.close()
     mi_contexto = Context()
