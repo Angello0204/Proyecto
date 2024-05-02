@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Cliente</h1>
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Cliente
+{% endblock titulo %}
+
+
+{% block  contenido%}
+
     {% for cliente in clientes %}
         <h2>{{cliente.nombre}}</h2>
         <p>{{cliente.apellido}}</p>
@@ -14,5 +14,6 @@
         <p>{{cliente.pais_origen_id}}</p>
     {% endfor %}
     
-</body>
-</html>
+    <a href="{% url 'core:inicio' %}">ir a Inicio</a>
+
+{% endblock contenido %}   

@@ -2,8 +2,7 @@ from django.http import HttpResponse
 from django.template import Context , Template
 from django.shortcuts import render
 
-def saludo(request):
-    return HttpResponse ("Hola django")
+
 
 
 def probando_template(request):
@@ -15,6 +14,3 @@ def probando_template(request):
     return HttpResponse(mi_documento)
 
 
-def mis_notas(request):
-    
-    return render(request ,"notas.html")
