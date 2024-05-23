@@ -3,7 +3,6 @@ from django.contrib.auth.views import LoginView
 from django.http import HttpResponse , HttpRequest
 from django.shortcuts import render
 from .forms import CustomAuthenticationForm, CustomUserCreationForm
-# Create your views here.
 from . import models
 
 @login_required
@@ -24,5 +23,5 @@ def register(request:HttpRequest):
             form.save()
             return render(request, "core/index.html", {"mensaje":"Usuario creado"})
     else:
-        form= CustomUserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, "core/register.html",{"form":form})

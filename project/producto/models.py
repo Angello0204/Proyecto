@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class ProductoCategoria (models.Model):
@@ -14,14 +15,14 @@ class ProductoCategoria (models.Model):
         verbose_name_plural = "categorías de productos"
 
 class Producto(models.Model):
-    categoria_id = models.ForeignKey(ProductoCategoria,null=True)  
+    categoria_id = models.ForeignKey(ProductoCategoria,null=True, on_delete=models.CASCADE)  
     nombre= models.CharField(max_length=100)      
-    unidad_medida = models.charfield(max_lengt=100)
+    unidad_medida = models.CharField(max_length=100)
     cantidad = models.FloatField()
     precio =models.FloatField()
     descripcion = models.TextField(null=True, blank = True, verbose_name="descripcion")
     fecha_actualizacion =  models.DateField(
-        null=True, blank=True,editable=False, verbose_name="fecha de actualizacion"
+        null=True, blank=True,default=timezone,editable=False, verbose_name="fecha de actualizacion"
     )
 
     def __str__(self) -> str:

@@ -5,7 +5,7 @@
 {% endblock titulo %}
 
 {% block contenido %}
-    {% if user.is authenticated%}
+    {% if user.is_authenticated%}
         {{mensaje}}
         <p class = "fs-2">Bienvenido {{user.username}}</p>
     {% endif %}

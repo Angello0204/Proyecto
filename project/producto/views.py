@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models.query import Queryset
+from django.db.models.query import QuerySet
 from django.shortcuts import render,  redirect
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -29,7 +29,7 @@ def productocategoria_create(request):
             return redirect("producto:inicio")
     else:
         form = forms.ProductoCategoriaForm()
-    return render(request, "producto/productocategoria_create.html",context={"form": form})
+        return render(request, "producto/productocategoria_create.html",context={"form": form})
 
 def productocategoria_detail(request,pk):
     query = models.ProductoCategoria.objets.get(id=pk)

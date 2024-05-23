@@ -10,7 +10,7 @@ class ProductoCategoriaAdmin(admin.ModelAdmin):
     list_display_links = ("nombre", )
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display=("cateogira_id", "nombre","unidad_medida", "cantidad", "precio", "fecha_actualizacion")
+    list_display=("categoria_id", "nombre","unidad_medida", "cantidad", "precio", "fecha_actualizacion")
     list_display_links = ("nombre", )
     search_fields = ("nombre",)
     ordering= ("categoria_id","nombre")
