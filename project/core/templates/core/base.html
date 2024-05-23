@@ -28,7 +28,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'core:inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
+                        {% if user.is_authenticated %}
+                            
+                        
                         <li class="nav-item"><a class="nav-link" href="{% url 'cliente:inicio' %}">Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'producto:inicio' %}">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link text-bg-info ">{{ user.username }}</a></li>
+                        <li class="nav-item ">
+                            <form action="{% url 'core:logout' %}" method="post"></form>
+                                {% csrf_token %}    
+                                <button type = "submit" class="btn btn-dark">Logout</button>
+                            </form> 
+                        </li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'core:register' %}">Registrarse</a></li>
+                        {% endif %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'producto:inicio' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

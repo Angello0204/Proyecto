@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Login
+{% endblock titulo %}
+
+{% block contenido %}
+<div class="container">
+    <h1 class="mt-4 ">Login</h1>
+</div>
+
+<form method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="hidden" name="next" value="{%url'core:inicio'%}">
+    <button type="submit" class="btn btn-primary">Inicio Sesion</button>
+    <a href="{% url 'core:index' %}" class="btn btn-secondary ">Cancelar</a>
+</form>
+{%endblock contenido %}
+    

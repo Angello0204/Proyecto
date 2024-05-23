@@ -1,15 +1,20 @@
 > {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Productos
+    App Productos
 {% endblock titulo %}
-
 {% block contenido %}
-    <ul>
-    {% for producto  in productos %}
-        <li>{{producto}}</li>        
-    {% endfor %}
-    </ul>
+    <div class="fs-3 pb-5 ">
+        <a href="{% url 'producto:productocategoria_create' %}">crear categorias de productos</a>
+    </div>
+    <div class="fs-3 pb-5 ">
+        <a href="{% url 'producto:productocategoria_list' %}">Listar categorias de productos</a>
+    </div>  
+    <div class="fs-3 pb-5 ">
+        <a href="{% url 'producto:inicio' %}">Volver a inicio</a>
+    </div>  
 
-    <a href="{% url 'core:inicio' %}">ir a Inicio</a> 
+
+    
+
 {% endblock contenido %}   
